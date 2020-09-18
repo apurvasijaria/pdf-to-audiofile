@@ -1,0 +1,2 @@
+pdfplumber==0.5.23
+pyttsx3==2.90
