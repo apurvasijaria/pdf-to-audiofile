@@ -31,7 +31,8 @@ engine.setProperty('voice', voices[0].id) #0 for Male, 1 for Female
 
 ##Choosing voice rate
 rate = engine.getProperty('rate')
-engine.setProperty('rate', 150)
+engine.setProperty('rate', 200)
+
 
 ##Reading all PDF files one by one and saving the audio files for respective files
 for f in filenames:
@@ -39,7 +40,10 @@ for f in filenames:
         text = ''
         for page in pdf.pages:  
             text = text  + str(' ' if page.extract_text() is None else page.extract_text())
+        text.replace("_"," ").replace(" \n"," ")
         engine.save_to_file(text, "".join([audio_path,f.split('.pdf')[0],'.mp3']))
         engine.runAndWait()
+
+
 
         
